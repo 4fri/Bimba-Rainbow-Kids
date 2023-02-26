@@ -7,16 +7,17 @@
                 <div class="col-md-6 mx-auto">
 
                     @if (session()->has('pop_message'))
-                    <div class="text-center alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ session('pop_message') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                        <div class="text-center alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('pop_message') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     @endif
 
                     <div class="card">
                         <div class="card-body p-5">
                             <header class="text-center mb-5">
-                                <h1 class="text-xxl text-gray-400 text-uppercase">Registrasi<strong class="text-primary"> BIMBA</strong></h1>
+                                <h1 class="text-xxl text-gray-400 text-uppercase">Registrasi<strong
+                                        class="text-primary"> BIMBA</strong></h1>
                                 <p class="text-gray-500 fw-light">Silahkan Lakukan Registrasi Disini</p>
                             </header>
                             <form class="register-form" method="POST" action="{{ route('storeRegist') }}">
@@ -25,39 +26,48 @@
                                     <div class="col-lg-8 mx-auto">
                                         <div class="form-group mb-3">
                                             <label class="label-material">Full Name </label>
-                                            <input class="form-control @error('fullname') is-invalid @enderror" type="text" name="fullname">
+                                            <input class="form-control @error('fullname') is-invalid @enderror"
+                                                type="text" name="fullname">
                                             @error('fullname')
-                                            <small class=" text-danger">{{ $message }}</small>
+                                                <small class=" text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                         <div class="form-group mb-3">
                                             <label class="label-material">Username </label>
-                                            <input class="form-control @error('username') is-invalid @enderror" type="text" name="username">
+                                            <input class="form-control @error('username') is-invalid @enderror"
+                                                type="text" name="username">
                                             @error('username')
-                                            <small class=" text-danger">{{ $message }}</small>
+                                                <small class=" text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                         <div class="form-group mb-3">
                                             <label class="label-material">Email Address</label>
-                                            <input class="form-control @error('email') is-invalid @enderror" type="email" name="email">
+                                            <input class="form-control @error('email') is-invalid @enderror"
+                                                type="email" name="email">
                                             @error('email')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                         <div class="form-group mb-4">
                                             <label class="label-material">Password</label>
-                                            <input class="form-control @error('password') is-invalid @enderror" type="password" name="password">
+                                            <input class="form-control @error('password') is-invalid @enderror"
+                                                type="password" name="password">
                                             @error('password')
-                                            <small class="text-danger">{{ $message }}</small>
+                                                <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                         <div class="form-check mb-4">
-                                            <input class="form-check-input" id="register-agree" name="registerAgree" type="checkbox" required value="1">
-                                            <label class="form-check-label form-label" for="register-agree">I agree with the terms and policy </label>
+                                            <input class="form-check-input" id="register-agree" name="registerAgree"
+                                                type="checkbox" required value="1">
+                                            <label class="form-check-label form-label" for="register-agree">I agree with
+                                                the terms and policy </label>
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button class="btn btn-primary mb-3" id="login" type="submit">Sign Up</button><br><span class="text-xs text-gray-500">Already have an account? </span><a class="text-xs text-paleBlue ms-1" href="{{ route('login') }}">Sign In</a>
+                                        <button class="btn btn-primary mb-3" id="login" type="submit">Sign
+                                            Up</button><br><span class="text-xs text-gray-500">Already have an account?
+                                        </span><a class="text-xs text-paleBlue ms-1" href="{{ route('login') }}">Sign
+                                            In</a>
                                     </div>
                                 </div>
                             </form>
@@ -94,5 +104,3 @@
 
     @extends('auth.script')
 </body>
-
-</html>
