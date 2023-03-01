@@ -1,0 +1,12 @@
+{
+    "editor.fontSize": 16,
+    "editor.minimap.scale": 1,
+    "editor.fontWeight": "normal",
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.wordWrapColumn": 80,
+    "editor.stickyScroll.maxLineCount": 5,
+    "editor.scrollbar.verticalScrollbarSize": 16,
+    "editor.scrollbar.horizontalScrollbarSize": 12,
+    "editor.lineHeight": 1.68,
+}
