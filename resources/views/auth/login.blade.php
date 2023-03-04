@@ -7,7 +7,7 @@
                 <div class="col-md-6 mx-auto">
 
                     @if (session()->has('pop_message'))
-                        <div class="text-center alert alert-danger alert-dismissible fade show" role="alert">
+                        <div class="text-center alert alert-success alert-dismissible fade show" role="alert">
                             {{ session('pop_message') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
@@ -20,7 +20,7 @@
                                         BIMBA</strong></h1>
                                 <p class="text-gray-500 fw-light">Silahkan Login terlebih dahulu</p>
                             </header>
-                            <form class="login-form" method="POST" action="{{ route('authenticate') }}">
+                            <form class="login-form" method="POST" action="/login">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-7 mx-auto">

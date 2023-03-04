@@ -19,6 +19,6 @@ use App\Http\Controllers\Auth\RegisterController;
 
 Auth::routes();
 Route::post('/register-save', [RegisterController::class, 'storeRegist'])->name('storeRegist');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
+// Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
