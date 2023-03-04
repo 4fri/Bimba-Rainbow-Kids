@@ -4,12 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Models\UserRoles;
-use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\Auth\RegistRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -55,9 +52,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'fullname' => ['required'],
+            'username' => ['required', 'unique:users,username'],
+            'email' => ['required', 'unique:users,email', 'email:dns'],
+            'password' => ['required', 'min:6']
         ]);
     }
 
@@ -81,15 +79,14 @@ class RegisterController extends Controller
         try {
             $role_murid = 2;
             $get_user_roles = UserRoles::find($role_murid);
-            // dd(Toastr());
 
             $create_user = User::create([
                 'fullname' => $request->fullname,
                 'username' => $request->username,
                 'email' => $request->email,
-                'password' => bcrypt($request->password),
+                'password' => Hash::make($request->password),
                 'user_role_id' => $get_user_roles->id,
-                'remember_token' => Str::random(50)
+                'remember_token' => $request->_token
             ]);
 
             return redirect('/login')->with('pop_message', 'Account registration was successful, Pleas Login!');
